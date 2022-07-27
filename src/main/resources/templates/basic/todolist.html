@@ -28,7 +28,7 @@
             <tbody>
             <tr th:each="todo : ${todolist}">
                 <td><a href="todo.html" th:href="@{/basic/todo/{todoid}(todoid=${todo.id})}" th:text="${todo.id}">listId</a></td>
-                <td><a href="todo.html" th:href="@{|/basic/todolist/${todo.}|}" th:text="${item.itemName}"> Do</a></td>
+                <td><a href="todo.html" th:href="@{|/basic/todolist/${todo.id}|}" th:text="${item.itemName}"> Do</a></td>
                 <td><a href="todo.html" th:text="${item.price}">10000</a></td>
             </tr>
             </tbody>
