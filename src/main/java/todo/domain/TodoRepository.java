@@ -1,7 +1,6 @@
 package todo.domain;
 
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +28,7 @@ public class TodoRepository {
         return new ArrayList<>(store.values());
     }
 
-    //Todo 수정
+    //Todo수정
     public void update(Long id, Todo updateParam) {
         Todo findTodo = findById(id);
         findTodo.setLocalDateTime(updateParam.getLocalDateTime());
@@ -40,10 +39,5 @@ public class TodoRepository {
     public void clearStore() {
         store.clear();
     }
-
-
-
-
-
 
 }
