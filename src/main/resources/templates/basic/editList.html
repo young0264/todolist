@@ -1,16 +1,52 @@
-<!DOCTYPE html>
-<html>
+<!--상세페이지-->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="utf-8">
+    <link   th:href="@{/css/bootstrap.min.css}"
+            href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        } </style>
 </head>
-<head>
 <body>
-<ul>
-    <li>
-        안녕하세요 반갑습니다.edit
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Todo 수정 페이지</h2></div>
+<!--    <h4 class="mb-3">할일 입력 </h4>-->
+    <!--폼을 열때는Get, 저장후에 여는건 POST-->
+    <form action="todoit.html" th:action method="post">
+        <!-- value들을 가져오고-->
+        <div>
+            <label for="id">list Id</label>
+            <input type="text" id="id" name="id" class="form-control" value="1" th:value="${todoit.id}" readonly>
+        </div>
+        <div>
+            <label for="doit">What to do?</label>
+            <input type="text" id="doit" name="doit" class="form-control" value="할것" th:value="${todoit.doList}">
+        </div>
+        <div>
+            <label for="date">Date</label>
+            <input type="datetime-local" id="date" name="date" class="form-control" value="2022" th:value="${todoit.date}" >
+        </div>
 
-    </li>
-</ul>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-primary btn-lg"
+                        type="submit">할일 등록
+                </button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-lg"
+                        onclick="location.href='todolist.html'"
+                        th:onclick="|location.href='@{/basic/todolist/{todoid}(todoid=${todoit.id})}'|"
+                        type="button">취소
+                </button>
+            </div>
+        </div>
+    </form>
+</div> <!-- /container -->
 </body>
-</head>
 </html>

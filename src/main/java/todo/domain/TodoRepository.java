@@ -8,31 +8,31 @@ import java.util.Map;
 
 @Repository
 public class TodoRepository {
-    private static final Map<Long, Todo> store = new HashMap<>();
+    private static final Map<Long, Todoit> store = new HashMap<>();
     private static long sequence = 0L;
 
 
     //저장
-    public Todo save(Todo todo) {
-        todo.setId(++sequence);
-        store.put(todo.getId(), todo);
-        return todo;
+    public Todoit save(Todoit todoit) {
+        todoit.setId(++sequence);
+        store.put(todoit.getId(), todoit);
+        return todoit;
     }
 
     //id로 찾기
-    public Todo findById(Long id) {
+    public Todoit findById(Long id) {
         return store.get(id); }
 
     //Todo리턴
-    public List<Todo> findAll() {
+    public List<Todoit> findAll() {
         return new ArrayList<>(store.values());
     }
 
     //Todo수정
-    public void update(Long id, Todo updateParam) {
-        Todo findTodo = findById(id);
-        findTodo.setLocalDateTime(updateParam.getLocalDateTime());
-        findTodo.setDoList(updateParam.getDoList());
+    public void update(Long id, Todoit updateParam) {
+        Todoit findTodoit = findById(id);
+        findTodoit.setLocalDateTime(updateParam.getLocalDateTime());
+        findTodoit.setDoList(updateParam.getDoList());
     }
 
     //store 정리

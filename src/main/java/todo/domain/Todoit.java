@@ -6,15 +6,15 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Getter @Setter
-public class Todo {
+public class Todoit {
     private Long id;
     private String doList;
     private LocalDateTime localDateTime;
 
-    public Todo() {
+    public Todoit() {
     }
 
-    public Todo(String doList, LocalDateTime localDateTime) {
+    public Todoit(String doList, LocalDateTime localDateTime) {
         this.doList = doList;
         this.localDateTime = localDateTime;
     }

@@ -12,8 +12,8 @@
     <div class="row">
         <div class="col">
             <button class="btn btn-primary float-end"
-                    onclick="location.href='addForm.html'"
-                    th:onclick="|location.href='@{/basic/items/add}'|"
+                    onclick="location.href='addList.html'"
+                    th:onclick="|location.href='@{/basic/todolist/add}'|"
                     type="button">할일 등록</button> </div>
     </div>
     <hr class="my-4">
@@ -24,12 +24,11 @@
                 <th>ID</th> <th>What to do</th> <th>Time</th>
             </tr>
             </thead>
-
             <tbody>
-            <tr th:each="todo : ${todolist}">
-                <td><a href="todo.html" th:href="@{/basic/todo/{todoid}(todoid=${todo.id})}" th:text="${todo.id}">listId</a></td>
-                <td><a href="todo.html" th:href="@{|/basic/todolist/${todo.id}|}" th:text="${item.itemName}"> Do</a></td>
-                <td><a href="todo.html" th:text="${item.price}">10000</a></td>
+            <tr th:each="todoit : ${todolist}">
+                <td><a href="todoit.html" th:href="@{/basic/todolist/{todoid}(todoid=${todoit.id})}" th:text="${todoit.id}">listId</a></td>
+                <td><a href="todoit.html" th:href="@{|/basic/todolist/${todoit.id}|}" th:text="${todoit.doList}"> Do</a></td>
+                <td><a href="todoit.html" th:href="@{|/basic/todolist/${todoit.id}|}" th:text="${todoit.localDateTime}">10000</a></td>
             </tr>
             </tbody>
         </table>
