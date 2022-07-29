@@ -39,8 +39,13 @@ public class BasicController {
         return "basic/addList";
     }
 
+    //이걸 통으로
     @PostMapping("/add")
     public String addListV1(Todoit todo, RedirectAttributes redirectAttributes) {
+        System.out.println("todo.getId() : "+ todo.getId());
+        System.out.println("todo.getDoList() : "+ todo.getDoList());
+        System.out.println("todo.getLocalDateTime() : "+ todo.getLocalDateTime());
+
         Todoit savedTodo = todoRepository.save(todo);
         redirectAttributes.addAttribute("todoId", savedTodo.getId());
         redirectAttributes.addAttribute("status", true);
@@ -50,12 +55,17 @@ public class BasicController {
     @GetMapping("/{todoId}/edit")
     public String editList(@PathVariable Long todoId, Model model) {
         Todoit todoit = todoRepository.findById(todoId);
-        model.addAttribute("todoit",todoit );
+        model.addAttribute("todoit",todoit);
         return "basic/editList";
     }
 
     @PostMapping("/{todoId}/edit")
     public String edit(@PathVariable Long todoId, @ModelAttribute Todoit todoit) {
+        System.out.println("todoId : " + todoId);
+        System.out.println("todoitgetId : " + todoit.getId());
+        System.out.println("todoitgetDoList : " + todoit.getDoList());
+        System.out.println("todoitgetLocalDateTime : " + todoit.getLocalDateTime());
+
         todoRepository.update(todoId, todoit);
         return "redirect:/basic/todolist/{todoId}";
     }

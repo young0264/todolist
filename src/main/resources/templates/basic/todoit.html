@@ -22,7 +22,8 @@
     <!-- id, name , class-->
     <div>
         <label for="do">What to do?</label><!--수정할부분. placeholder -> th:value 와 readonly-->
-        <input type="text" id="do" name="do" class="form-control" value="0" th:value="${todoit.doList}" readonly>
+        <input type="text" id="do" name="do" class="form-control" value="0"
+               th:value="${todoit.doList}" readonly>
     </div>
     <div>
         <label for="date">Date</label>
