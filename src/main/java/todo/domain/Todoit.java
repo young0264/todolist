@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class Todoit {
     private Long id;
     private String doList;
-    private LocalDateTime localDateTime;
+    private Object localDateTime;
 
     public Todoit() {
     }
