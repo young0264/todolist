@@ -49,8 +49,8 @@ public class BasicController {
 
     @GetMapping("/{todoId}/edit")
     public String editList(@PathVariable Long todoId, Model model) {
-        Todoit todo = todoRepository.findById(todoId);
-        model.addAttribute("todo",todo );
+        Todoit todoit = todoRepository.findById(todoId);
+        model.addAttribute("todoit",todoit );
         return "basic/editList";
     }
 
